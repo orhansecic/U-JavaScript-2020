@@ -1,0 +1,30 @@
+Udemy Course
+Title: JavaScript: Understanding the Weird Parts
+Date: 4.8.2020
+-----------------------------------------------------
++"Do not Imitate, UNDERSTAND"+
+-----------------------------------------------------
+Big WORD Alert:
+1. Syntax Parsers - used for reading and understanding the code that is written, so that machine can understand it
+2. Lexical Environment - the rules of how code should be written and position of elements of code ( after function there is a space then a name)
+3. Execution Context - a wrapper to help manage the code that is running
+4. Name/Value Pair - a name which maps to a unique value
+5. object - a collection of name/value pairs (This is the simplest explanation of objects in JavaScript)
+
+--------------------------------------------------------------------------------
+4. Name/Value Pair Example:
+- Example would be a basic variable
+- name = "Orhan"
+
+5. object Example:
+- As it is defined, in the simplest form possible in JavaScript - object is a collection of name/value pairs
+- Example:
+Address = {
+	street="Gigim Street",
+	number= 9
+	apartment={
+		floor=2,
+		position = "Middle",
+		number=301
+	}
+}
