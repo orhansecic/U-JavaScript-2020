@@ -5,26 +5,68 @@ Date: 4.8.2020
 +"Do not Imitate, UNDERSTAND"+
 -----------------------------------------------------
 Big WORD Alert:
-1. Syntax Parsers - used for reading and understanding the code that is written, so that machine can understand it
-2. Lexical Environment - the rules of how code should be written and position of elements of code ( after function there is a space then a name)
+1. Syntax Parsers - used for reading and understanding the code that is written, so that machine can understand it (parsing means dividing a large
+entity into smaller entities for better understanding)
+2. Lexical Environment - the rules of how code should be written and position of elements of code ( Example: after function there is a space 
+then a name)
 3. Execution Context - a wrapper to help manage the code that is running
 4. Name/Value Pair - a name which maps to a unique value
 5. object - a collection of name/value pairs (This is the simplest explanation of objects in JavaScript)
+6. Hoisting - unique JavaScript behaviour 
+7. "undefined" - value of variables that is later replaced by the real values of variables, never set the value of variable to undefined let the JavaScript 
+Engine do it for you
 
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
 - Example would be a basic variable
 - name = "Orhan"
 
++++++++++++++++++++++
+
 5. object Example:
 - As it is defined, in the simplest form possible in JavaScript - object is a collection of name/value pairs
 - Example:
 Address = {
-	street="Gigim Street",
-	number= 9
-	apartment={
-		floor=2,
-		position = "Middle",
-		number=301
+	street:"Gigim Street",
+	number: 9
+	apartment:{
+		floor:2,
+		position :"Middle",
+		number:301
 	}
 }
+
+++++++++++++++++++++++
+
+3. Execution Context:
+-Great article on execution context - http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/
+
+Global Execution Context:
+- "Global" -> in JavaScript means: "Not inside a function".
+- Is the base execution context in any JavaScript Code that is always created by the JavaScript Engine, it does not matter if there is no code in the
+.js file the global execution context will always be created.
+- Global Execution Context has 2 main things that are created with it and that is Global Objects and "this" (which is a global variable).
+- When something is "global" it means that is always and everywhere accessible in your code.
+- Global Object created in any kind of browser when running the JavaScript code is called "window" and it is equal to "this" variable, which means 
+that "window" and "this" have equal values and they are the same in the Global Environment of browsers.
+- It is important to note that every tab is a new "window" that creates its own Global Environment.
+
+-If variables and functions are created on a global level they will be attached to the global object - "window" or "this" (because they are the same)
+
+
++++++++++++++++++++++++
+2 Phases that the code goues through: 
+
+Creation Phase: Elements of the Execution Context - https://prnt.sc/tx52pe
+Execution Phase: Elements of the Execution Context - https://prnt.sc/tx5b3u
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+6.  Hoisting
+- Every JavaScript file when it is run is divided into phases.
+- First phase is the "Creation" phase where the "hoisting" behaviour happens.
+- In the Creation phase syntax parser goes through the code line by line and creates all the variable and functions in the memory, allocating memory
+space for them.
+- Every variable created in this phase will have an "undefined" value assigned to them while every function will store its own values in the memory
+- In other phases the values of variables are added to the memory
+- An example of this can be seen here: https://prnt.sc/tv2zhk
