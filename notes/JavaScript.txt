@@ -15,6 +15,12 @@ then a name)
 6. Hoisting - unique JavaScript behaviour 
 7. "undefined" - value of variables that is later replaced by the real values of variables, never set the value of variable to undefined let the JavaScript 
 Engine do it for you
+8. Single Threaded - single command is executed at a time, JavaScript is a Single Threaded programming language, but it does not mean that browsers
+are executing all other commands in a single thread manner. In JavaScript only one thing is happening at a time.
+9. Function Invocation and Execution Stack- running a function ( calling a function ), execution stack is collection of stacks that represent the contexts
+that are being executed.
+10. Variable Environment - is the environment that is created for a variables in a specific execution context
+11. Scope Chain - the relationship between functions, their lexical environments, relationship established as parent - child relationship
 
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
@@ -55,7 +61,7 @@ that "window" and "this" have equal values and they are the same in the Global E
 
 
 +++++++++++++++++++++++
-2 Phases that the code goues through: 
+2 Phases that the code goes through: 
 
 Creation Phase: Elements of the Execution Context - https://prnt.sc/tx52pe
 Execution Phase: Elements of the Execution Context - https://prnt.sc/tx5b3u
@@ -70,3 +76,57 @@ space for them.
 - Every variable created in this phase will have an "undefined" value assigned to them while every function will store its own values in the memory
 - In other phases the values of variables are added to the memory
 - An example of this can be seen here: https://prnt.sc/tv2zhk
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+9. To Invoke a Function and Execution Stack
+- Invocation of a function is running the contents of a function.
+- It is basically creating an Execution Context that the JavaScript engine will enter and execute a code inside of it.
+
+- Invoking a function is easy, at the first hierarchical level outside of the function just call the name of the function with "()"
+-Example:
+
+function example(){
+	console.log("It is working");
+} 
+
+example();
+
+- "example();" is the Invocation of a function.
+
+-At the initial phase of running a code, Creation Phase will begin on the Global Level, which means that only global variable and function will be allocated
+and run.
+-To access other functions and execute them we need to Invoke them on the global level, and move further down the path.
+- This process of invoking and adding the functions to the execution is called "Execution Stack", every function added to the Execution Stack is added
+at the top and it is immediately executed line by line after the top function is finished and it didnt invoke to a new function it will "pop off" the
+execution stack and move to the function below it.
+
+- Image of the Execution Stack and Invoking Functions - https://prnt.sc/tz02t6
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+10. Variable Environment
+
+- Every execution context ( it does not matter if it is global or functional execution context ) can be looked at as the independent environment that is
+created
+- What this means is that every context has its own Variable Environment.
+- Every variable environment of specific execution context is independent of one another, which means that variable with same names can be created in
+different variable environments and they wont influence one another.
+
+-The Example of multiple Variable Environments with same variable names can be found here: https://prnt.sc/u012rx
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+11. Scope Chain
+
+- Scope determines the accessibility (visibility) of variables.
+- Scope Chain represents the relationship between the variables from the perspective of a scope.
+
+- Example: https://prnt.sc/u01jpz
+- In the example; function b() is trying to console.log the value of "myVar" variable but it did not declare the value of this variable, what will happen
+is determined by the scope chain.
+- Function b() because it does not know what is the value of variable will try to find it outside of its execution context ( in the outer environment ) and
+scope chain will tell it that outside of this function is global execution context and will look for the value of "myVar" there, if function b() was inside 
+the function a() it would then look at the value of "myVar" variable there, if a() also does not know the value of "myVar" it will go outside of a(), this
+will proceed until the value of "myVar" is found through the Scope Chain or until the end is reached and the value is not declared.
+
+-Example of a code when function b() is one level below the global level - https://prnt.sc/u01lfm (meaning that it will look for answer in global context)
+- Example of a code when function b() is inside function a() - https://prnt.sc/u01mae
