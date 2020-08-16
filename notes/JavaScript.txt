@@ -19,8 +19,12 @@ Engine do it for you
 are executing all other commands in a single thread manner. In JavaScript only one thing is happening at a time.
 9. Function Invocation and Execution Stack- running a function ( calling a function ), execution stack is collection of stacks that represent the contexts
 that are being executed.
-10. Variable Environment - is the environment that is created for a variables in a specific execution context
+10. Variable Environment - is the environment that is created for variables in a specific execution context
 11. Scope Chain - the relationship between functions, their lexical environments, relationship established as parent - child relationship
+12. Asynchronous - more than one at a time 
+13. "let" - variable type
+----------------- END OF SECTION 2 ----------------------------
+
 
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
@@ -130,3 +134,35 @@ will proceed until the value of "myVar" is found through the Scope Chain or unti
 
 -Example of a code when function b() is one level below the global level - https://prnt.sc/u01lfm (meaning that it will look for answer in global context)
 - Example of a code when function b() is inside function a() - https://prnt.sc/u01mae
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+12. Asynchronous
+
+- We have already established that JavaScript is a synchronous / single threaded programming language.
+- Meaning that it is able to execute lines of code or statements one by one.
+- But in a way that JavaScript Engine behaves in a browser when it is executed it creates an imagination that it is a Asynchronous language.
+
+- When JavaScript is executed the first thing that happens is that the whole JavaScript Code is being executed, everything that is part of the Execution
+Stack will be executed until the Execution Stack is empty.
+- But, while the execution stack is being executed something called the Event Queue is being filled with different events that are happening on the
+page, such as "Click" event (Someone pressing something on the page).
+- Only when the whole Execution Stack is empty only then will the functions assigned to handle these events will be loaded into the stack to resolve 
+events.
+- Furthermore, resolving events is also a Synchronous process only a single event handler function will be loaded on the execution stack and only when
+it "pops out" of the stack the other function is loaded that will be used to handle second event on event queue.
+
+Examples : https://prnt.sc/u0gthg and https://prnt.sc/u0gtt3 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+13. "let" variable type
+Great Information about "let" - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+
+- "let" is a type of variable that is used in specific scenarios
+- It is intialized in the same way as the "var"
+- Example: let variable1 = 1;
+
+- "let" variables are unique in a way that they are used 
+-  "var" variables scope is defined in the function itself while the "let" variables change and they are unique for any block statement ({} statements, like
+for loop, if statements and etc.)
+
+Example: https://prnt.sc/u0gq3q and https://prnt.sc/u0gui9

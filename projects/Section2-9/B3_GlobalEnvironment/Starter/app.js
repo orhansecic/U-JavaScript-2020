@@ -1,10 +1,8 @@
-var myVar = 1;
-a();
-function a(){
-  var myVar = 2;
-  b();
+var var1 = 1;
+console.log(var1);
 
-    function b() {
-      console.log(myVar);
-    }
-}
+for(let start = 0; start<5; start++){
+  console.log(start);
+};
+let start = 120;
+console.log(start);
