@@ -24,7 +24,18 @@ that are being executed.
 12. Asynchronous - more than one at a time 
 13. "let" - variable type
 ----------------- END OF SECTION 2 ----------------------------
-
+14. Dynamic Typing - In JavaScript user does not specify what type a certain variable is ( this is common in other programming languages ) where you 
+specify that variable is of type integer then the programming language engine is expecting a specific value to be inserted in that variable. In JavaScript
+type is not specified, the type of variables are "var" which basically means "variable", and when engine goes through different phases of creation and
+execution it will understand and set a certain type to a variable
+15. Primitive Types in JavaScript (+)
+16. Operators 
+17. Operator Precedence - "Pravo prvenstva" at operators, which operator will be executed first, is it * or + ...
+18. Operator Associativity - happens when we have multiple operators with the same precedence, will they execute from left to right or opposite
+19. Coercion - converting a value from one type to another
+20. Comparison Operators 
+21. Existence and Booleans - boolean values are able to tell if a certain variable has a value inside of it, every variable with a value that is not: 0,
+undefined, null, " "... is equal to true.
 
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
@@ -166,3 +177,45 @@ Great Information about "let" - https://developer.mozilla.org/en-US/docs/Web/Jav
 for loop, if statements and etc.)
 
 Example: https://prnt.sc/u0gq3q and https://prnt.sc/u0gui9
+
+----------------- END OF SECTION 2 ----------------------------
+15. Primitive Types in JavaScript
+
+-Primitive type is just the type of variable that is commonly set in other programming languages manually while in JavaScript primitive types are set
+dynamically.
+- There are 6 Primitive Types in JavaScript:
+1. "Undefined" - is a value set to variables that represent lack of existence, meaning the variable has no value set to it
+2. "Null" - similar to the "Undefined" value of variable, it represents that value is not set, but the difference is that "Null" should be set by the programmer
+if he wants to and "Undefined" shouldn't 
+3. "Boolean" - has only two values, true or false
+4. "Number" - holds all values of number types, it is a floating number which means that it always has some decimals attached to it
+5. "String" - a sequence of characters, words basically
+6. "Symbol" - new type introduced in ES6 (Version of JavaScript)
+
+++++++++++++++++++++++++++++++++++++++++++++
+19. Coercion - converting a value from one type to another
+
+- Because JavaScript is a dynamically allocated programming language, meaning that it has dynamic typing, coercion is one of the methods that it uses
+when things become a bit messy.
+- Operators are able to work with strings and numbers, but what happens when we use strings and numbers in the same equation. 
+- Example of operators working with strings and numbers separately - https://prnt.sc/u2uzay
+
+- Coercion happens when we use multiple different primitive types with a single operator.
+- For an example adding 1 and 2 where 2 is a string, will result in something unexpected.
+- The result can be seen here - https://prnt.sc/u2v2am
+- The result of this operation is 12 because JavaScript Engine knows that 1 and 2 are of two different types and it is coercing 1 into string so they are
+compatible with each other. 
+- How will JavaScript coerce in different situations and what will switch into what type is something that is defined deep into the JavaScript Engine.
+- Just be aware that it happens.
+- When an unexpected result happens, following the path of execution (Execution Stack), scope of variable (Scope Chain) and understanding the 
+coercion will help us decode what happened.
+
++++++++++++++++++++++++++++++++++++++++++++++
+20. Comparison Operators 
+
+- This is a very long and detailed topic
+- It talks about comparisons in the JavaScript and how values are converted and compared so that comparing 1 and true will return that they are equal
+- Also in JavaScript there exist "===" that is used in block statements that looks for the absolute equal, which means that it will not convert any values
+that values have to be equal to one another no matter what without any conversion. 
+- Example: https://prnt.sc/u3hwvs
+- Documentation MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
