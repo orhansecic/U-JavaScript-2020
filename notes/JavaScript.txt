@@ -5,38 +5,51 @@ Date: 4.8.2020
 +"Do not Imitate, UNDERSTAND"+
 -----------------------------------------------------
 Big WORD Alert:
+----------------- Execution Context and Lexical Environments ----------------------------
 1. Syntax Parsers - used for reading and understanding the code that is written, so that machine can understand it (parsing means dividing a large
 entity into smaller entities for better understanding)
 2. Lexical Environment - the rules of how code should be written and position of elements of code ( Example: after function there is a space 
 then a name)
-3. Execution Context - a wrapper to help manage the code that is running
-4. Name/Value Pair - a name which maps to a unique value
-5. object - a collection of name/value pairs (This is the simplest explanation of objects in JavaScript)
-6. Hoisting - unique JavaScript behaviour 
++ 3. Execution Context - a wrapper to help manage the code that is running
++ 4. Name/Value Pair - a name which maps to a unique value
++ 5. object - a collection of name/value pairs (This is the simplest explanation of objects in JavaScript)
++ 6. Hoisting - unique JavaScript behaviour 
 7. "undefined" - value of variables that is later replaced by the real values of variables, never set the value of variable to undefined let the JavaScript 
 Engine do it for you
 8. Single Threaded - single command is executed at a time, JavaScript is a Single Threaded programming language, but it does not mean that browsers
 are executing all other commands in a single thread manner. In JavaScript only one thing is happening at a time.
-9. Function Invocation and Execution Stack- running a function ( calling a function ), execution stack is collection of stacks that represent the contexts
++ 9. Function Invocation and Execution Stack- running a function ( calling a function ), execution stack is collection of stacks that represent the contexts
 that are being executed.
-10. Variable Environment - is the environment that is created for variables in a specific execution context
-11. Scope Chain - the relationship between functions, their lexical environments, relationship established as parent - child relationship
-12. Asynchronous - more than one at a time 
-13. "let" - variable type
++ 10. Variable Environment - is the environment that is created for variables in a specific execution context
++ 11. Scope Chain - the relationship between functions, their lexical environments, relationship established as parent - child relationship
++ 12. Asynchronous - more than one at a time 
++ 13. "let" - variable type
 ----------------- END OF SECTION 2 ----------------------------
+----------------- Types and Operators ----------------------------
 14. Dynamic Typing - In JavaScript user does not specify what type a certain variable is ( this is common in other programming languages ) where you 
 specify that variable is of type integer then the programming language engine is expecting a specific value to be inserted in that variable. In JavaScript
 type is not specified, the type of variables are "var" which basically means "variable", and when engine goes through different phases of creation and
 execution it will understand and set a certain type to a variable
-15. Primitive Types in JavaScript (+)
++ 15. Primitive Types in JavaScript
 16. Operators 
 17. Operator Precedence - "Pravo prvenstva" at operators, which operator will be executed first, is it * or + ...
 18. Operator Associativity - happens when we have multiple operators with the same precedence, will they execute from left to right or opposite
-19. Coercion - converting a value from one type to another
-20. Comparison Operators 
++ 19. Coercion - converting a value from one type to another
++ 20. Comparison Operators 
 21. Existence and Booleans - boolean values are able to tell if a certain variable has a value inside of it, every variable with a value that is not: 0,
 undefined, null, " "... is equal to true.
-
+++POGELDATI OPET 28. i 29. VIDEO++
+----------------- END OF SECTION 3 ----------------------------
+----------------- Objects and Functions ----------------------------
++ 22. Object
++ 23. Object Literals
++ 24. Framework Aside: Faking Namespaces
++ 25. JSON - JavaScript Object Notation
++ 26. First Class Functions 
++ 27. Function Expressions and Function Statements
++ 28. By Value vs By Reference
++ 29. to Mutate
++ 30. Objects, Functions and "this"
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
 - Example would be a basic variable
@@ -113,7 +126,7 @@ example();
 and run.
 -To access other functions and execute them we need to Invoke them on the global level, and move further down the path.
 - This process of invoking and adding the functions to the execution is called "Execution Stack", every function added to the Execution Stack is added
-at the top and it is immediately executed line by line after the top function is finished and it didnt invoke to a new function it will "pop off" the
+at the top and it is immediately executed line by line after the top function is finished and it did not invoke to a new function it will "pop off" the
 execution stack and move to the function below it.
 
 - Image of the Execution Stack and Invoking Functions - https://prnt.sc/tz02t6
@@ -124,8 +137,8 @@ execution stack and move to the function below it.
 - Every execution context ( it does not matter if it is global or functional execution context ) can be looked at as the independent environment that is
 created
 - What this means is that every context has its own Variable Environment.
-- Every variable environment of specific execution context is independent of one another, which means that variable with same names can be created in
-different variable environments and they wont influence one another.
+- Every variable environment of specific execution context is independent of one another, which means that variable with same names can be created 
+in different variable environments and they wont influence one another.
 
 -The Example of multiple Variable Environments with same variable names can be found here: https://prnt.sc/u012rx
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -169,7 +182,7 @@ Examples : https://prnt.sc/u0gthg and https://prnt.sc/u0gtt3
 Great Information about "let" - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 
 - "let" is a type of variable that is used in specific scenarios
-- It is intialized in the same way as the "var"
+- It is initialised in the same way as the "var"
 - Example: let variable1 = 1;
 
 - "let" variables are unique in a way that they are used 
@@ -179,7 +192,7 @@ for loop, if statements and etc.)
 Example: https://prnt.sc/u0gq3q and https://prnt.sc/u0gui9
 
 ----------------- END OF SECTION 2 ----------------------------
-15. Primitive Types in JavaScript
+Primitive Types in JavaScript
 
 -Primitive type is just the type of variable that is commonly set in other programming languages manually while in JavaScript primitive types are set
 dynamically.
@@ -216,6 +229,138 @@ coercion will help us decode what happened.
 - This is a very long and detailed topic
 - It talks about comparisons in the JavaScript and how values are converted and compared so that comparing 1 and true will return that they are equal
 - Also in JavaScript there exist "===" that is used in block statements that looks for the absolute equal, which means that it will not convert any values
-that values have to be equal to one another no matter what without any conversion. 
+that values have to be equal to one another no matter what, without any conversion. 
 - Example: https://prnt.sc/u3hwvs
 - Documentation MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+----------------- END OF SECTION 3 ----------------------------
+22. Object
+
+- as it is mentioned before object in the most primitive example is a collection of name/value pairs ( or variables )
+- the content of an object can be divided into two categories, into "primitives" and "Methods"
+- "Primitives" are content of an object that are of primitive type ( such as boolean, number, string...)
+- "Primitive" contents can be basic variables or objects inside of objects.
+- While "Methods", on the other hand, are functions of objects. 
+- Firstly created object whose content are other objects and variables, is most likely referenced as parent object, has its own memory space and number
+associated with it.
+- Every variable and object inside a parent object has its own memory space to which parent object is able to access by saving and knowing the number
+that every memory space and variable / object has.
+
+- Creation of Object and its properties can be seen here: https://prnt.sc/uc6956
+
+- This is a very important topic and the importance of the "dot" operator is fully explained in the video, if anything is left unclear watch the video again
+
++++++++++++++++++++++++++++++++++++++++++++++
+23. Object Literals
+
+- Great Information on the topic of Object Literals - https://www.dyn-web.com/tutorials/object-literal/
+- A JavaScript object literal is a comma-separated list of name-value pairs wrapped in curly braces. Object literals encapsulate data, enclosing it in a tidy 
+package. 
+- This minimizes the use of global variables which can cause problems when combining code.
+
+- Object Literal is a better way of creating object and initializing its content.
+- Example of creating an object with object literals can be seen here - https://prnt.sc/ucybrq
+
++++++++++++++++++++++++++++++++++++++++++++++
+24. Framework Aside: Faking Namespaces
+
+- By learning the variable environments and how they behave with one another, I understood that variables of same names can not be created in the
+same execution context.
+- If they are then they would just change the values of the one and only created variable.
+- Now the question remains what will happen if we have more then one JS file that is connected to the same HTML for an example and where JS files
+have the same name of some variables?
+
+- The solution can be found in objects, every unique object can have any value of namespaces of variables.
+- For an example, two variables of name "example" can not be in the same execution context but if they are in two different objects then they can
+
++++++++++++++++++++++++++++++++++++++++++++++
+25. JSON
+
+- Great source of information on JSON - https://www.json.org/json-en.html
+
+- JSON maybe looks similar to Object Literal but they are not the same thing.
+- JSON is mostly used for communicating with a server, for an example sending data information to a server from your website.
+- In this JSON format data is easily readable and very lightweight especially for syntax parser and fast execution.
+- "JSON an ideal data-interchange language"
+
+- In JSON the name in name/value pair has to have a double quotation marks on it (" ") 
+
+JavaScript provides methods:
+
+- JSON.stringify to convert objects into JSON.
+- JSON.parse to convert JSON back into an object.
+
++++++++++++++++++++++++++++++++++++++++++++++
+26. First Class Functions
+
+- JavaScript has a very unique functions.
+- They behave and are regarded as objects.
+- Object has its properties it is what makes him an object, and a property of an object can be many different things.
+- The same behaviour a function has, first two properties that are created with a function are function name and the code of a function.
+- WIth the "dot" operator (.), same as with a normal object, we are able to add properties to a function.
+- For an example - myFunction.variable = "Ovo je neka vrijednost", can be done and it will generate a property on a function that will have the 
+added value.
+- Properties of functions can be variables, objects and other functions.
+
+- Properties of a function - https://prnt.sc/udjyqe
+
++++++++++++++++++++++++++++++++++++++++++++++
+27. Function Expression and Function Statements
+
+- Expression is a unit of code that results in a value, this value does not have to be saved in a variable.
+- Statements are lines of code that in execution phase can become expressions, basically any kind of code that is written.
+- Statements do the work. 
+
+- Now statements can have a form of a function, continuing the definition of a statement we just add on it the definition of a function.
+- Meaning that a function created in the general way, as it can be seen in the example below, we get a function statement.
+- The content of function statements can result in function expression but the line of code that is the head of function is not an expression, because
+it does not result in creation of a value.
+- Example of a function statement - https://prnt.sc/uevhtm
+
+- Same as with statements, the expressions can have the form of a function.
+- Function Expression is a function that becomes a value of, for an example, a variable.
+- Because we understand that functions behave the same way as objects in JavaScript this means that they have the same behaviour of storing
+themselves inside of the variables.
+- Same as with an object and variable, the variable in which we stored a function basically becomes and behaves as a function itself, meaning
+we are able to use operators same way as we are interacting with a function.
+- Example of a function expression - https://prnt.sc/uevspd
+
++++++++++++++++++++++++++++++++++++++++++++++
+28. By Value vs By Reference
+
+- We created an primitive value "a", meaning a variable named "a" with a primitive value inside of it.
+- Variable "a" will be placed in memory and it will have its specific memory code or a memory place that is noted with a specific numbers and letters
+
+- Now we wanted to create the same exact variable but with a different name.
+- For an example variable "b", and we do that by using the equal operator - a = b;
+- In this case a new space in memory will be allocated and the values will be same but both variables will have different memory codes.
+- For an example "a" will have "0x001" while "b" will have "0x002"
+- And this is called "By Value"
+- In the Example, it can be seen how the "by Value" use of creating equal variables the variables will not affect one another if one changes the 
+value, that makes sense because the second variable "b" has its own memory space and it is created independent from variable "a" only the first 
+value is the same.
+- The Example - https://prnt.sc/ugmmgf
+
+- While in "By Reference"
+- We are talking about a more evolved storages of value, such as objects.
+- When we create and object it will constantly follow its properties with a memory address to always know where is everything and what is the 
+value, that is why the "." operator works.
+- If we create a new object that will be equal to the value of the previous object, basically creating the same object but with a different name.
+- The JavaScript will in this case make them equal and they will, "a" and "b" object, will both point with a same memory space code (that is the
+same reference to the memory space).
+- The thing with the "By Reference" is that once we change one of the properties of one of the objects that we made equal to then all objects change
+because they are basically showing to the same value in the memory, as it is explained previously.
+- Example - https://prnt.sc/ugn3tq
+
++++++++++++++++++++++++++++++++++++++++++++++
+29. To Mutate
+
+- To Mutate an object or a variable it just means to change the value of it, or to change it.
+- There also exists the term "immutable", which means that it can not be changed in any way.
+
++++++++++++++++++++++++++++++++++++++++++++++
+30. Objects, Functions and "this"
+
+- Every time an Execution Context is created three things are created with it.
+- The Variable Environment, Link to the Outer Environment ( the Scope Chain ) and the object "this".
+
