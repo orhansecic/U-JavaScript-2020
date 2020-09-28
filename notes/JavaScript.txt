@@ -38,7 +38,7 @@ execution it will understand and set a certain type to a variable
 + 20. Comparison Operators 
 21. Existence and Booleans - boolean values are able to tell if a certain variable has a value inside of it, every variable with a value that is not: 0,
 undefined, null, " "... is equal to true.
-++POGELDATI OPET 28. i 29. VIDEO++
+++POGLEDATI OPET 28. i 29. VIDEO++
 ----------------- END OF SECTION 3 ----------------------------
 ----------------- Objects and Functions ----------------------------
 + 22. Object
@@ -50,6 +50,8 @@ undefined, null, " "... is equal to true.
 + 28. By Value vs By Reference
 + 29. to Mutate
 + 30. Objects, Functions and "this"
++ 31. Arrays
++ 32. Arguments and Parameters
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
 - Example would be a basic variable
@@ -132,7 +134,7 @@ execution stack and move to the function below it.
 - Image of the Execution Stack and Invoking Functions - https://prnt.sc/tz02t6
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-10. Variable Environment
+10. 
 
 - Every execution context ( it does not matter if it is global or functional execution context ) can be looked at as the independent environment that is
 created
@@ -363,4 +365,77 @@ because they are basically showing to the same value in the memory, as it is exp
 
 - Every time an Execution Context is created three things are created with it.
 - The Variable Environment, Link to the Outer Environment ( the Scope Chain ) and the object "this".
+- "this" global object is a bit tricky when it is used, depending of a scenario in which the "this" object is created
+it can point to different things
+
+- Different Scenarios Can Happen:
+1. Being in a "Global Execution Context" or being in any "Execution Context" (inside of a function or in a function
+expression).
+2. Being inside of an object.
+2+. This can be defined as the third scenario but it is directly connected to the objects.
+
+
+
+
+1. In this scenario keyword "this" points to a global variable that has two names "window" or "this", adding properties
+to this object will be equal to creating variables and functions in the global execution context.
+- Example of this Scenario and the results: https://prnt.sc/unuc9e
+
+2. As we defined before, everything can be inside of an object. Functions inside of objects are called methods. 
+Using "this" keyword in methods it points to the object itself. 
+- Example: https://prnt.sc/unumjh
+
+2+. If we have a method inside of an object that has "this" keyword used we understood from the 2nd scenario that
+in that case "this" keyword will point to the object itself. BUT if we create a method inside of a method then
+use "this" keyword in that case it will point to the global window ( this ) object that happens in the 1st scenario
+- Example: https://prnt.sc/uouuvm
+
+- Scenario "2+" is something that is very strange and something that does not make sense in the world of programming.
+The logic does not follow, especially if we know about scenario "2". Because in the scenario "2" the "this" object
+points to the object in which it is located then we can use that to our own advantage and fix the strange state
+of "this" in nested methods of objects.
+- Example: https://prnt.sc/uov0vd - the use of "objThis" variable
+
++++++++++++++++++++++++++++++++++++++++++++++
+31. Arrays
+
+- Arrays are basically a collection of things.
+- We declare an array same as we do an object, we use "array literal" that has the same concept as "object literal"
+but the brackets that are used for arrays are "[]", value is put inside of them and it is divided with ","
+- Because JavaScript is a dynamically typed language it gives an ability to the array that can hold elements of 
+different type inside of the same array, which is very different from other programming languages.
+- Array can hold a number, a string, an object, a function and a boolean at the same time without any problems.
+
+- Example of function invocation through the arrays and using objects properties through arrays is very nicely
+explained on the video.
+- Also mine example of such problems: https://prnt.sc/uovhy4
+
++++++++++++++++++++++++++++++++++++++++++++++
+32. Arguments and Parameters 
+
+- Argument is the value that is passed to the functions parameters, they are basically the same thing but viewed 
+from different angles.
+- Argument is inserted in the "()" of the function invocation, while the parameter name is set in the "()" while
+creating the function.
+
+- Passing arguments to a function is very simple, basically the values that we pass through arguments to parameters
+will be filled from left to right, meaning if the first value is "21" and the first parameter is "name" then name will
+be equal to 21 in the function.
+- If we do not pass any value to a specific parameter in most programming languages that would result in an error
+but in JavaScritp because of hoisting this will result in these parameters to have "undefined" values and no error
+- Example: https://prnt.sc/up9tlh
+
+- Furthermore, in JavaScript we are able to set the default values to the parameters that will be their value if
+they are undefined at the end of creation. This is done just by setting the value of parameter in the brackets -
+function primjer ( parameter = "Default" )
+- Example: https://prnt.sc/up9vdv
+
+- Inside of a function there exists an array-like list that holds the collection of all arguments passed to a
+function.
+- It does not hold the default values that we set in the parameter brackets.
+- This array-like list is called "arguments" and it behaves as an array.
+- Example: https://prnt.sc/upa5fy
+- Example with if statement: https://prnt.sc/upa8zk
+
+
 

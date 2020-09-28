@@ -248,6 +248,11 @@ function myFunction(){
 myFunction();
 */
 
+
+
+
+//THIS KEYWORD
+/*
 console.log(this);
 
 function anonymous() {
@@ -267,14 +272,107 @@ var object = {
   b : "B",
   method : function(){
     console.log(this);
+    var praviThis = this;
     objectChild();
 
-    function objectChild(){
 
+    function objectChild(){
+      console.log(praviThis);
       console.log(this);
     }
-  }
+  },
 };
 
 object.method();
 console.log(object);
+*/
+/*
+console.log(this);
+
+function a(){
+  console.log(this);
+  c()
+  function c(){
+    console.log(this);
+  }
+}
+
+var b = function(){
+  console.log(this);
+}
+
+a();
+b();
+*/
+/*---------------------*/
+/*
+var object = {
+  a : "property",
+
+  method : function(){
+    console.log(this);
+    var objThis = this;
+    funkcijaMetode();
+   
+    
+
+      function funkcijaMetode(){
+        console.log(this);
+        console.log(objThis);
+      }
+  }
+}
+
+console.log(object);
+object.method();
+*/
+
+
+/* Arrays */
+/*
+
+var array = [
+  1,
+
+  "Orhan",
+
+  true,
+
+  {
+    name: "Timur",
+  },
+
+  function Greeting(name){
+    var greeting = "Hello ";
+
+    console.log(greeting + name);
+  },
+];
+
+array[4](array[1]);
+
+array[4](array[3].name);
+*/
+
+/* Arguments */
+
+function Greeting(firstname, lastname = "Kotromanic", age = "98", language = "BOS"){
+  
+  if(arguments.length >= 4){
+
+  console.log(firstname);
+  console.log(lastname);   
+  console.log(age);
+  console.log(language);
+  console.log("------------");
+
+  }else {
+    console.log("There are not enough arguments passed.")
+  }
+};
+/*
+Greeting("Orhan");
+Greeting("Orhan", "Secic");
+Greeting("Orhan", "Secic", 22);
+*/
+Greeting("Orhan", "Secic", 22, "bosnian");
