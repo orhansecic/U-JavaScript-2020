@@ -52,6 +52,7 @@ undefined, null, " "... is equal to true.
 + 30. Objects, Functions and "this"
 + 31. Arrays
 + 32. Arguments and Parameters
++ 33. Immediately Invoked Function Expression
 --------------------------------------------------------------------------------
 4. Name/Value Pair Example:
 - Example would be a basic variable
@@ -436,6 +437,28 @@ function.
 - This array-like list is called "arguments" and it behaves as an array.
 - Example: https://prnt.sc/upa5fy
 - Example with if statement: https://prnt.sc/upa8zk
+
++++++++++++++++++++++++++++++++++++++++++++++
+33. Immediately Invoked Function Expression
+
+- It is fairly simple to understand and use.
+- Everytime until now while creating a function it had to be invoked for it to execute its code.
+- Invoking a function is very simple and explained before.
+- Function Expression is nothing more then a function acting as a value that is stored inside of a variable that
+then behaves as a function.
+- Imeediately Invoked Function Expression is a syntax rule that enables programmer to invoke or run a function
+immediately when the function is created, just typing the "()" at the end of the functions body creates this rule.
+- A very simple example of IIFE: https://prnt.sc/uqii6h
+
+- This method only works with FUNCTION EXPRESSIONS.
+
+- A bit more complex example of IIFE, using return: https://prnt.sc/uqimxo
+
+- IIFE can be done without creating a variable in which we will store the function expression, in that case syntax
+is a bit different.
+- The whole anonymous function is put in the small brackets "()" and of course because we use anonymous function
+we have to use console.log because we are unable to use normal function invokation with a name.
+- Example of a IIFE with brackets: https://prnt.sc/uqjc1d
 
 
 

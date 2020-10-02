@@ -355,6 +355,7 @@ array[4](array[3].name);
 */
 
 /* Arguments */
+/*
 
 function Greeting(firstname, lastname = "Kotromanic", age = "98", language = "BOS"){
   
@@ -370,9 +371,42 @@ function Greeting(firstname, lastname = "Kotromanic", age = "98", language = "BO
     console.log("There are not enough arguments passed.")
   }
 };
-/*
 Greeting("Orhan");
 Greeting("Orhan", "Secic");
 Greeting("Orhan", "Secic", 22);
-*/
 Greeting("Orhan", "Secic", 22, "bosnian");
+*/
+
+/* Return */
+/*
+function returnExample(){
+
+  var a = "Orhan";
+  var b = "Timur";
+
+  console.log(a + " and " + b + " are brothers");
+
+  var c = "Huba Buba";
+
+  return c; 
+  
+}
+
+console.log(returnExample());
+
+var object = {
+  a: 21,
+  b : 22,
+  }
+*/
+
+/* Immediately Invoked Function Expressions */
+
+var firstName = "Orhan";
+
+(function (name) {
+  var greeting = "Zdravo ";
+
+  console.log(greeting + name + "e");
+
+})(firstName);
