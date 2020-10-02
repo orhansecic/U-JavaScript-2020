@@ -1,3 +1,4 @@
+Title: JavaScript: Understanding the Weird Parts
 Date: 4.8.2020
 -----------------------------------------------------
 +"Do not Imitate, UNDERSTAND"+
