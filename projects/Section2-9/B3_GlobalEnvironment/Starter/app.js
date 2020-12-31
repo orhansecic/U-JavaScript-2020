@@ -80,7 +80,14 @@ person.education.primary = "Hasan Kikic";
 person.education.middle = "Druga Gimnazija";
 person.education.university = "SSST";
 
-console.log(person);
+//console.log(person);
+person.example = {};
+person.example.ime = "Kerim";
+//console.log(person.example.ime);
+person.prototype = {};
+person.prototype.primjer = "Pogodak";
+
+console.log(person.primjer);
 */
 
 /*
@@ -587,7 +594,7 @@ console.log(timer);
 /* bind() method */
 //var ime = "Timur";
 //var prezime = "Doe";
-
+/*
 var object = {
   ime : "Orhan",
   prezime : "Secic",
@@ -608,3 +615,159 @@ var final = object.fullname;
 console.log(final());
 var foo = final.bind(object);
 console.log(foo());
+*/
+
+/* call() method */
+/*
+var object = {
+  fName : "Timur",
+  lName : "Secic",
+}
+
+var object2 = {
+  fName : "Orhan",
+  lName : "Kenjavac",
+}
+
+function example (language){
+  console.log("My name is " + this.fName + " " + this.lName + " in " + language);
+}
+
+example.call(object, "English");
+example.call(object2, "Spanish");
+*/
+
+/* Functional Programming */
+/*
+var array1 = [1, 2, 3];
+var foo = [3, 4, 5];
+
+function modArray(arr, fn, ime){
+  var dArray =  [];
+
+  if(ime === "d"){
+  for(i = 0; i<arr.length; i++){
+    dArray.push(double(arr[i]));
+  };
+}else if(ime === "t"){
+  for(i = 0; i<arr.length; i++){
+    dArray.push(triple(arr[i]));
+  };
+}else{
+  console.log("The Fuck");
+};
+return dArray;
+}
+
+function double(index){
+  return index * 2;
+};
+function triple(index){
+  return index * 3;
+};
+
+console.log(modArray(array1, triple, "t"));
+*/
+/* Functional Programming - Example from the Video */
+/*
+var array = [1, 2, 3];
+var array2 = [];
+var foo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function mapArray(full, empty, fn){
+
+  for(let i = 0; i<full.length; i++){
+    empty.push(fn(full[i]));
+  }
+}
+function popArray(array){
+  var length = array.length;
+  for(let i = 0; i < length; i++){
+      array.pop();
+  }
+}
+
+mapArray(array, array2, function(item){
+  return item * 2;
+})
+console.log(array2);
+console.log("+++++++++++++");
+
+console.log(foo);
+popArray(foo);
+console.log(foo);
+*/
+/*
+var array1 = [1, 2, 3, 4];
+var array2 = [];
+var ime = "Orhan";
+
+var equal = function(full, empty, fn){
+
+  for(let i = 0; i<full.length; i++){
+    empty[i] = (fn(full[i]));
+  };
+};
+
+equal(array1, array2, function(item){
+  return item * 2;
+});
+console.log(array2);
+
+var greaterTwo = equal(array1, array2, function(item){
+  return item >2;
+});
+console.log(array2);
+*/
+/*
+var greeting = "Olla ";
+var object = {
+  ime : "Orhan",
+  prezime : "Secic",
+  greeting : "Hello, ",
+}
+
+function Greeting(example){
+  console.log(this.greeting + this.ime + " " + this.prezime + " ," + example);
+};
+Greeting.call(object, "primjer");
+Greeting.apply(object, ["primjer"]);
+var foo = Greeting.bind(object);
+foo("primjer");
+*/
+
+//Inheritance - Prototypal Inheritance
+var object = {
+  firstName : "John",
+  lastName : "Doe",
+};
+
+var object2 = {
+  firstName : "Orhan",
+  lastName : "Secic",
+  method : function(){
+    return this.firstName + " " + this.lastName
+  },
+};
+
+var object3 = {
+  foo : "Example",
+  funkcija : function(){
+    return "Zdravo";
+  },
+};
+
+object.__proto__ = object2;
+object.__proto__.__proto__ = object3;
+
+console.log(object.foo);
+
+/*
+var array = [];
+console.log(array);
+console.log(array.__proto__);
+console.log(array.__proto__.length);
+console.log(array.length);
+*/
+object.firstName = "Kerim";
+console.log(object.firstName);

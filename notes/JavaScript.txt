@@ -1,5 +1,6 @@
 Title: JavaScript: Understanding the Weird Parts
 Date: 4.8.2020
+-https://underscorejs.org/# - Great Source of JavaScript Methods
 -----------------------------------------------------
 +"Do not Imitate, UNDERSTAND"+
 -----------------------------------------------------
@@ -55,6 +56,11 @@ undefined, null, " "... is equal to true.
 + 34. Closures
 + 35. Closures and Callbacks
 + 36. call(), apply() and bind() - methods of functions that are related to "this" global variable
++ 37. Functional Programming
+----------------- END OF SECTION 4 ----------------------------
+----------------- Object-Oriented JS and Inheritance ----------------------------
++ 38. Classical Inheritance vs Prototypal Inheritance
++ 39. Reflection and Extend
 ----------------- STATEMENTS ----------------------------
 + 1. "for" statement
 --------------------------------------------------------------------------------
@@ -339,7 +345,7 @@ we are able to use operators same way as we are interacting with a function.
 - Variable "a" will be placed in memory and it will have its specific memory code or a memory place that is noted with a specific numbers and letters
 
 - Now we wanted to create the same exact variable but with a different name.
-- For an example variable "b", and we do that by using the equal operator - a = b;
+- For an example variable "b", and we do that by using the equal operator - b = a;
 - In this case a new space in memory will be allocated and the values will be same but both variables will have different memory codes.
 - For an example "a" will have "0x001" while "b" will have "0x002"
 - And this is called "By Value"
@@ -350,10 +356,10 @@ value is the same.
 
 - While in "By Reference"
 - We are talking about a more evolved storages of value, such as objects.
-- When we create and object it will constantly follow its properties with a memory address to always know where is everything and what is the 
+- When we create an object it will constantly follow its properties with a memory address to always know where is everything and what is the 
 value, that is why the "." operator works.
 - If we create a new object that will be equal to the value of the previous object, basically creating the same object but with a different name.
-- The JavaScript will in this case make them equal and they, "a" and "b" object, will both point to a same memory space code (that is the
+- The JavaScript will in this case make them equal and they, "a" and "b" objects, will both point to a same memory space code (that is the
 same reference to the memory space).
 - The thing with the "By Reference" is that once we change one of the properties of one of the objects that we made equal to, then all objects will change
 because they are basically pointing to the same value in the memory, as it is explained previously.
@@ -412,7 +418,7 @@ different types inside of the same array, which is very different from other pro
 - Array can hold a number, a string, an object, a function and a boolean at the same time without any problems.
 
 - Example of function invocation through the arrays and using objects properties through arrays is very nicely
-explained on the video.
+explained in the video.
 - Also mine example of such problems: https://prnt.sc/uovhy4
 
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -427,7 +433,7 @@ creating the function.
 will be filled from left to right, meaning if the first value is "21" and the first parameter is "name" then name will
 be equal to 21 in the function.
 - If we do not pass any value to a specific parameter in most programming languages that would result in an error
-but in JavaScritp because of hoisting this will result in these parameters to have "undefined" values and no error
+but in JavaScript because of hoisting this will result in these parameters to have "undefined" values and no error
 - Example: https://prnt.sc/up9tlh
 
 - Furthermore, in JavaScript we are able to set the default values to the parameters that will be their value if
@@ -454,7 +460,7 @@ then behaves as a function.
 immediately when the function is created, just typing the "()" at the end of the functions body creates this rule.
 - A very simple example of IIFE: https://prnt.sc/uqii6h
 
-- This method only works with FUNCTION EXPRESSIONS.
+- This method only works with FUNCTION EXPRESSIONS. ----> Not so sure
 
 - A bit more complex example of IIFE, using return: https://prnt.sc/uqimxo
 
@@ -471,7 +477,7 @@ we have to use console.log because we are unable to use normal function invocati
 - Basically closures enable functions or execution contexts that pop off the execution stack to still remain in the scope
 chain, for its own child functions to get their values for variables.
 
-- Closures is mostly used with functions that return their child functions. Meaning, when the function is called it will
+- Closures are mostly used with functions that return their child functions. Meaning, when the function is called it will
 return its child function. Using function expression will store the returned function into the variable which will result
 in variable being a function.
 - After the parent function is executed and child function is stored as a function expression, then we can still execute
@@ -486,8 +492,10 @@ but in the same logical function.
 - At the end we get two result from these two different "greeting" variables, while using two different instances of closures
 
 +++++++++++++++++++++++++++++++++++++++++++++
-34. Closures and Callbacks
+35. Closures and Callbacks
 
+- Function that is passed to another function as a parameter is a callback function, that parameter
+function is executed inside of the function.
 - A callback function is a function that is given to another function, for an example function sent to
 a function as a parameter, then that parameter function is called inside of the "parent" function. "Parent"
 function is calling back (invoking the function inside of it) when we call it. We invoke the function 
@@ -498,8 +506,9 @@ is a callback function.
 - Example of a Callback function: https://prnt.sc/vv396s
 
 +++++++++++++++++++++++++++++++++++++++++++++
-35. bind()
+36. bind(), call() and apply()
 
+1. bind()
 - bind is a method of a function that is used to bind the function to the specific object.
 - meaning that the global variable "this" will then point to the object that was "binned".
 - This bind() method is only used in scenarios when we take the method outside of the object, by storing
@@ -512,6 +521,63 @@ that we want will make the "this" point back to the object that we want it to po
 just connect its "this" pointer to the object that we set, so that we are able to use its properties.
 
 - Example of bind(): https://prnt.sc/vvsqe4
+
+2. call()
+- call() method is used the same way as bind(), every function created gets these three methods attached
+to them.
+- call() method is used to invoke a function while through parameters to set to what object does this
+point.
+- Furthermore, next to the object to which we want the "this" to point we also can set the parameters
+of the function in the call() method. For an example, fullName.call(person, "Orhan", "Secic");
+
+3. apply()
+- It is similar to call() method just the parameters sent to the function must be set in the array.
+- Example, fullName.apply(person, ["Orhan", "Secic"].
+
++++++++++++++++++++++++++++++++++++++++++++++
+37. Functional Programming
+
+- Functional Programming is the way of programming by using functions.
+- JavaScript has so called "first-class functions" and it is very important to utilize them for the
+purpose of becoming as effective and efficient as you can be.
+
++++++++++++++++++++++++++++++++++++++++++++++
+38. Classical Inheritance vs Prototypal Inheritance
+
+- Inheritance is the ability of an object to have an access to the properties of another object.
+- We divide inheritance to Classical and Prototypal
+
++ Prototypal Inheritance:
+
+- Understanding the Prototype:
+- "__proto__" is a property that represents the prototype property of objects, it is initialized in 
+every object.
+- "All objects have a reference to another object, and we call that a prototype."
+- Prototype is the concept that extends the object itself, objects can have a prototype as one of its
+properties.
+- Prototype basically enables the object to have access to specific properties that are not attached
+to the object directly but are attached to the prototype property directly, BUT object is able to 
+access those specific properties as if they were attached directly to the object itself.
+- Prototypes can have their own prototypes attached to them as properties, which basically means if
+we follow the same logic, that object is able to access properties of the 2nd prototype directly.
+- This is defined as a "Prototype Chain"
+- Example of this: -https://prnt.sc/w9paot
+
++ Protoype property:
+- In the Video 55. he shows and explains that basically any object, function or array, anything that
+is regarded as an object in JS has its own prototype defined at the creation of object.
+- Furthermore, this prototype holds the connection to the so called "default methods" of objects.
+- For an example, array.length, array.push, array.pop, is basically short version of
+array.prototype.length ...
+- Also, every time an object is created we get a prototype property, when that property (prototype)
+gets filled with another object, that prototype property gets its own prototype property, that user
+is able to connect to another object, and so on and on...
+
++++++++++++++++++++++++++++++++++++++++++++++
+39. Reflection and Extend
+- Reflection: "an object can look at itself, listing and changing its properties and methods".
+
+ 
 ----------------- STATEMENTS ----------------------------
 1. "for" statements
 
