@@ -61,6 +61,12 @@ undefined, null, " "... is equal to true.
 ----------------- Object-Oriented JS and Inheritance ----------------------------
 + 38. Classical Inheritance vs Prototypal Inheritance
 + 39. Reflection and Extend
+----------------- END OF SECTION 5 ----------------------------
+----------------- Building Objects ----------------------------
++ 40. Function Constructors, "new" keyword and the History of JS
++ 41. Built-in Function Constructors
++ 42. Object.create and Pure Prototypal Inheritance
+----------------- END OF SECTION 6 ----------------------------
 ----------------- STATEMENTS ----------------------------
 + 1. "for" statement
 --------------------------------------------------------------------------------
@@ -577,7 +583,108 @@ is able to connect to another object, and so on and on...
 39. Reflection and Extend
 - Reflection: "an object can look at itself, listing and changing its properties and methods".
 
- 
++++++++++++++++++++++++++++++++++++++++++++++
+40. Function Constructors, "new" keyword and the History of JS
+
+- "new" is an operator
+- "new" operator is nothing more then another way of creating objects.
+- "new" operator looks for a constructor next to itself from which it will create an object
+- in the example the function constructor is created with some properties created inside of it, noted
+that these properties all have "this." in front of them, which is very important
+- without "this." the properties will not become a part of the object
+- "new" creates an object in the memory, then that object is filled with constructor function that is 
+executed, meaning that it gets its own properties from the function, that is why we need the "this."
+because it now points to the object that we created while before that it pointed to the Global Execution
+Context.
+- It is also very important to note that the constructor function can not have a return statement, in 
+that case the operator "new" will not work, the function will just return the value it is supposed
+to and object will be empty. Without return statement, constructor returns the object created.
+
+- "Function used for constructing objects is called a function constructor!". 
+
++++++++++++++++++++++++++++++++++++++++++++++
+40. Function Constructors and ".prototype"
+
+- Great example on the topic: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance#ECMAScript_2015_Classes
+
+- When it comes to function constructors or classes and their constructors the understanding remains
+the same as before, they are basically used to construct an object with the help of "new" operator.
+- https://prnt.sc/wf9puj - image of elements of ever function.
+- Every function when it is created it has its "name" (name can also be anonymous), function has its
+"body" (lines of code that do the work, that are executed) and also every single function that is
+created has "prototype" that is used only when the "new" operator is used.
+- Meaning that "prototype" of every function will only be used if that function is used as a function
+constructor.
+- This "prototype" property is not the same as "__proto__" of this function, this "prototype" represents
+the prototype of objects that were created by this constructor.
+
+- Let us say we have an example of a constructor that built 100 objects.
+- All of these objects were created with a "new" operator and built by the same constructor function
+- Now we want to add a new property to every single one of those objects that we created, as if we want
+to create a property in the memory and make all of those objects point to that memory space.
+- The same thing we did with object literals and "__proto__" property, just in this case we are not
+inheriting any properties from another object but we are creating a new property that will all object
+of specific constructor have access to.
+
+- The name of the constructor function or class (does not matter which one we use) is Person.
+- Person constructor creates firstName and lastName properties.
+- We want to add a method to every single object created with the Person constructor.
+- We just say: Person.prototype.fullName and we build the function.
+
+- Person.prototype represents the prototype of every single object we created with this constructor,
+all objects inherit the fullName method.
+
+-Example: https://prnt.sc/wf9zbq
+
+- It is recommended to ".prototype" to add new methods to multiple objects, because this way only one
+method is created and all objects point to it, if this method was part of the constructor then every
+single object created with that constructor will have its own duplicate of the method, which will result
+in a great memory loss.
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+41. Built-in Function Constructors
+
+- In JavaScript there are built-in constructors.
+- Which means that these constructors build objects that have specific methods and primitives attached
+to them.
+- Built-in Constructors are nothing more then a basic constructor, just this one was created by the JS
+itself. (Default Code)
+
+- Different built-in constructors can be found here: https://www.tutorialspoint.com/built-in-javascript-constructors
+
+- It is very important to understand and remember, that even though some of these constructors are called
+"Number" or "String" and so on - they all create an object!
+
+- Every object literal or array literal is nothing more then a shorter way of calling a Object() or 
+Array() constructor with a new operator. All of these constructors have their ".prototypes" that is why
+it makes sense when we see in MDN documentation, "Array.prototype.push()"
+
++++++++++++++++++++++++++++++++++++++++++++++
+42. Object.create and Pure Prototypal Inheritance
+
+- Until now, we always created objects in the same way.
+- We used object constructors, were we aware of using them or not we still used them.
+- As I mentioned before, while using object literal we were still using constructors to construct the
+objects.
+- Inheritance after learning the ".prototype" was something that remained unknown on how to implement it.
+- We were unable to use "__proto__", so the question remained how are we able to inherit the properties
+of an object that we created by inheriting them all at once.
+- That is where the Object.create comes into play.
+- While creating an object we are able to define instantly what will be the properties of the prototype
+of that specific object.
+- Example: "var foo = Object.create(obj);" creates a object called "foo" whose prototype is pointing
+to all the properties of "obj" object that we created somewhere before.
+- The same logic remains when it comes to the accessing the properties in this relationship, if 
+properties can not be found on the object itself then the JS will look for them in the prototype.
+- This whole process is defined as the "Pure Prototypal Inheritance"
+
+- "Object.create" is something that new browsers have ( most likely by now all browsers have it )
+- but if there is some kind of feature or method or anything that you are not sure that it is supported
+by the browser you use something called the "polyfill".
+- Def. "Polyfill" - "Code that adds a feature which the engine may lack".
+
 ----------------- STATEMENTS ----------------------------
 1. "for" statements
 

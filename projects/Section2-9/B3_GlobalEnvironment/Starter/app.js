@@ -10,7 +10,7 @@ console.log(true==1);
 console.log(1==false);
 */
 
-/*
+/* Existence
 var myVar;
 var myString = "O";
 
@@ -737,6 +737,7 @@ foo("primjer");
 */
 
 //Inheritance - Prototypal Inheritance
+/*
 var object = {
   firstName : "John",
   lastName : "Doe",
@@ -769,5 +770,153 @@ console.log(array.__proto__);
 console.log(array.__proto__.length);
 console.log(array.length);
 */
+/*
 object.firstName = "Kerim";
 console.log(object.firstName);
+*/
+
+// "new" keyword and function constructors
+/*
+function auto(engineSize, snaga, litar){
+    this.Size = engineSize;
+    this.Power = snaga;
+    this.liter = litar
+}
+
+var škoda = new auto("medium", "110 HS", "2.0 L");
+console.log(škoda);
+*/
+/*
+class foo{
+  constructor(ime, prezime){
+  this.firstName = ime;
+  this.lastName = prezime;
+  this.age = 22;
+  this.method = function(){
+    return this.firstName + " " + this.lastName + " and the address of this person is " + this.address;
+  };
+}
+}
+var object = {
+  address : "Merhemica Trg 9",
+  address2 : "Tepebasina 2",
+}
+
+var person = new foo("Kerim", "Obh");
+var person2 = new foo();
+
+foo.prototype.addy = "Cica Buca 12";
+*/
+
+/*
+function foo(){
+  this.firstName = "Kerim";
+  return this.firstName = "Orhan";
+}
+
+var person = new foo();
+console.log(person);
+*/
+/*
+class Person{
+  constructor(name, lastname){
+    this.firstName = name;
+    this.lastName = lastname;
+  }
+}
+
+var Jane = new Person ("Jane", "Doe");
+var Joe = new Person ("Joe", "Doe");
+var Orhan = new Person ("Orhan", "Secic");
+
+console.log(Jane);
+console.log(Joe);
+console.log(Orhan);
+
+Person.prototype.fullName = function(){
+  return this.firstName + " " + this.lastName;
+};
+
+Person.prototype.a = 2;
+*/
+/*
+function foo(){
+  document.getElementById("example").innerHTML = "Paragraph changed!";
+};
+*/
+/* Object Prototype*/
+/*
+var object = {
+  foo : "Example",
+  number : 22,
+};
+
+var arr = ["Orhan", "Timur", "Mirela", "Samir"];
+
+function example(){
+  return "This is a function";
+};
+
+class objCons{
+  constructor(sentence){
+    this.prop = sentence;
+    this.prop2 = function(){
+      return this.prop + " " + this.firstName + " " + this.varijabla.hey;
+    };
+  };
+};
+
+var en = new objCons("Where is the library?");
+var es = new objCons("Donde esta la biblioteca?");
+var bs = new objCons("Gdje je biblioteka?");
+
+en.greeting = "Hi";
+en.obj = {
+  firstName : "Orhan",
+  lastNAme : "Secic",
+}
+
+objCons.prototype.method = function(){
+  return "Naked and afraid!";
+}
+objCons.prototype.varijabla = {
+  hey : "Greetings my fellow earthlings",
+};
+*/
+/* For In */
+/*
+var obj = {
+  a : 1,
+  b : 2,
+  c : 3,
+  method : function(){
+    return this.a + this.b + this.c;
+  },
+};
+
+for(var prop in obj){
+  console.log(prop + " " + obj[prop]);
+};
+*/
+function obj(){
+  this.name = "Kerim";
+  this.surname = "Obhodjas";
+}
+
+var foo = Object.create(obj);
+console.log(foo);
+
+class Example extends obj{
+
+  constructor(){
+    super();
+    this.address = "Tepebasina 2";
+    this.university = "SSST";
+
+  };
+};
+
+var foo2 = new Example();
+Example.prototype.method = function(){
+ return this.name + " " + this.university;
+}
