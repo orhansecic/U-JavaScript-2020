@@ -898,6 +898,7 @@ for(var prop in obj){
   console.log(prop + " " + obj[prop]);
 };
 */
+/*
 function obj(){
   this.name = "Kerim";
   this.surname = "Obhodjas";
@@ -920,3 +921,151 @@ var foo2 = new Example();
 Example.prototype.method = function(){
  return this.name + " " + this.university;
 }
+*/
+/* window object */
+/*
+var ime = "Mirela";
+
+function example(){
+  window.ime = "Orhan";
+  var ime = "Timur";
+  console.log(ime);
+};
+
+example();
+*/
+/* map */
+/*
+var arr = [
+        {
+            id : 0,
+            name : "Coca Cola",
+            price : 1,
+            details : "Healthy",
+            sugar : "50 %",
+        },
+        {
+            id : 1,
+            name : "Pepsi",
+            price : 2,
+            details : "Healthy",
+            sugar : "25 %",
+        },
+        {
+            id : 2,
+            name : "Fanta",
+            price : 1.25,
+            details : "Healthy",
+            sugar : "50 %",
+        },
+        {
+            id : 3,
+            name : "Orange Juice",
+            price : 3.5,
+            details : "Healthy",
+            sugar : "2 %",
+        },
+];
+var foo = arr.map(
+  function(item){
+    console.log(item.id);
+  }
+);
+*/
+/*
+function foo(ime){
+
+  var a = ime;
+
+  return function(){
+    var b = "Secic"
+    console.log(a + " " + b);
+  };
+};
+
+var c = foo("Orhan");
+c();
+*/
+/*
+Write a function that takes two parameters, a string and an integer. The function will return another string that is similar to the input string, but with certain characters removed.
+It's going to remove characters from consecutive runs of the same character, where the length of the run is greater than the input parameter.
+Examples:
+1. aaab, 2 => aab
+2. aabb, 1 => ab
+3. aabbaa, 1 => aba
+*/
+/*
+function remove(input, maxChars){
+  //input = "aabb"
+  //maxChars - number of maximum iterations
+  var output = ""; //word result
+  var prevChar; //previous character
+  var seenChar = 0; // number of times the character is duplicate
+
+  //currChar - current character
+  for (var currChar in input){
+    if(currChar === prevChar){
+      seenChar += 1;
+    }else{
+      seenChar = 0;
+      prevChar = currChar;
+    }
+    if( seenChar < maxChars){
+      output += currChar;
+    }
+  }
+  return output;
+};
+remove("aabb", 1);
+*/
+/*
+function remove ( input , maxChar){
+  var output= "";
+  var prevChar = "";
+  var duplicates = 0;
+
+  for(currChar in input){
+    if(currChar = prevChar){
+      duplicates = duplicates + 1;
+    }else{
+      prevChar = currChar;
+      //currChar = "o";
+      //prevChar = "o";
+      duplicates = 0;
+    }
+    if(duplicates < maxChar){
+      output = output + currChar;
+    }
+
+  }
+      return output;
+}
+
+console.log(remove("oorhan", 1));
+*/
+//var string = "aaabb";
+var currChar = "";
+var prevChar = "";
+var same = 0;
+//var max = 2;
+var output = "";
+function remove(string, max){
+for ( var i = 0; i<string.length; i++){
+  currChar = string[i];
+
+  if(currChar === prevChar){
+    //console.log("Isti su.")
+    same++;
+  }else{
+    //console.log("nisu isti")
+    prevChar = currChar;
+    same = 0;
+  };
+  if(same < max){
+    output = output + currChar;
+  }
+};
+return output;
+};
+
+console.log(remove("aaabb", 1));
