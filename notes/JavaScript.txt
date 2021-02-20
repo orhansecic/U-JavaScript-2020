@@ -67,6 +67,11 @@ undefined, null, " "... is equal to true.
 + 41. Built-in Function Constructors
 + 42. Object.create and Pure Prototypal Inheritance
 ----------------- END OF SECTION 6 ----------------------------
+
++++++++++++++++++++++++Colt Steele and Coding Train+++++++++++++++++++++++
+---------------------Async JavaScript--------------------
++ 1. The Call Stack
++ 3. Promises and fetch()
 ----------------- STATEMENTS ----------------------------
 + 1. "for" statement
 --------------------------------------------------------------------------------
@@ -99,7 +104,7 @@ Global Execution Context:
 - Is the base execution context in any JavaScript Code that is always created by the JavaScript Engine, it does not matter if there is no code in the
 .js file the global execution context will always be created.
 - Global Execution Context has 2 main things that are created with it and that is Global Objects and "this" (which is a global variable).
-- When something is "global" it means that is always and everywhere accessible in your code.
+- When something is "global" it means that it is always and everywhere accessible in your code.
 - Global Object created in any kind of browser when running the JavaScript code is called "window" and it is equal to "this" variable, which means 
 that "window" and "this" have equal values and they are the same in the Global Environment of browsers.
 - It is important to note that every tab is a new "window" that creates its own Global Environment.
@@ -145,13 +150,13 @@ example();
 and run.
 -To access other functions and execute them we need to Invoke them on the global level, and move further down the path.
 - This process of invoking and adding the functions to the execution is called "Execution Stack", every function added to the Execution Stack is added
-at the top and it is immediately executed line by line after the top function is finished and it did not invoke to a new function it will "pop off" the
+at the top and it is immediately executed line by line, after the top function is finished and it did not invoke to a new function it will "pop off" the
 execution stack and move to the function below it.
 
 - Image of the Execution Stack and Invoking Functions - https://prnt.sc/tz02t6
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-10. 
+10. Variable Environment
 
 - Every execution context ( it does not matter if it is global or functional execution context ) can be looked at as the independent environment that is
 created
@@ -684,6 +689,69 @@ properties can not be found on the object itself then the JS will look for them 
 - but if there is some kind of feature or method or anything that you are not sure that it is supported
 by the browser you use something called the "polyfill".
 - Def. "Polyfill" - "Code that adds a feature which the engine may lack".
+
+---------------------------- Async JavaScript ----------------------------
++++++++++++++++++++++++++++++++++++++++++++++
+1. The Call Stack
+
+- the call stack is the mechanism that JS uses to note where it is in the code itself, basically to 
+know what functions did it execute and what it did not and especially where the syntax parser was 
+before it jumped into the specific function to execute it.
+- Important to note is that call stack is a stack, which means that last thing added to the stack is
+the first thing that will leave it. Last in - First out
+
+- The Call Stack is the same thing as the Execution Stack
+
++++++++++++++++++++++++++++++++++++++++++++++
+2. WebAPIs and Single Threaded
+
+- JS is a single threaded programming language.
+- but with few tricks its able to trick us to think that it is a multi threaded language
+- one of those tricks are WebAPIs, they are a specific functions and methods (setTimetout()) that
+browser takes care of until the action that is taking too long is done and browser calls back the JS
+to execute the lines of code inside of it.
+
++++++++++++++++++++++++++++++++++++++++++++++
+3. Promises and fetch()
+
+- https://javascript.info/promise-chaining
+- a promise is a object that represents the success or failure of an asynchronous operation.
+
+- An example of Asynchronous operation would be a fetch() method, fetch method is used for fetching a data
+from a specific endpoint that we pass to the method as a parameter.
+- fetch() method returns a promise object.
+- "fetch() is a function that fetches the data from the URL that you passed it and returns a promise object"
+- Example of a "promise" object that was returned - https://prnt.sc/zuursk
+
+- This promise object can be in different states:
+1. pending - waiting to get the data from API
+2. fulfilled - its been successful
+3. rejected - some error has happened
+
++ There are two methods that exist on the promise object +
+1. then()
+2. catch()
+
+- Both of these methods accept a function (callback function) that will be executed when one of the methods
+are called.
+- then() is invoked automatically when the promisee's status code is fulfilled.
+- catch() is invoked automatically when the promisee's status code is rejected.
+
+- then() method has one argument, promisee's fulfilment value.
+- catch() method has one argument, promisee's rejection reason.
+- Both of these arguments are created when the methods are used, we just have to define their names and then
+we can use them without any problems (of course calling them by names that we defined).
+
++ then() chaining:
+
+- then() method returns a promise, that is really important to understand if you want to understands promises
+- is the process of adding multiple then() methods to create a sequence of actions that are happening after 
+the fetch was successful.
+- its important to note that every time we chain then methods() they have to return a value which will be 
+inherited by the next then() method.
+++ What .then() returns the next .then() gets as a parameter that I mentioned on the line 738. Only the first
+.then() gets a promisee's fulfilment value.
+
 
 ----------------- STATEMENTS ----------------------------
 1. "for" statements

@@ -1041,8 +1041,10 @@ function remove ( input , maxChar){
       return output;
 }
 
+/* Walter Exercise */
+/*
 console.log(remove("oorhan", 1));
-*/
+
 //var string = "aaabb";
 var currChar = "";
 var prevChar = "";
@@ -1069,3 +1071,63 @@ return output;
 };
 
 console.log(remove("aaabb", 1));
+*/
+
+/* Promises APIs */
+/*
+var p = document.querySelector("p");
+
+var endpoint = "http://api.tvmaze.com/singlesearch/shows?q=girls";
+var people = "http://api.tvmaze.com/search/people?q=lauren";
+
+
+fetch(endpoint)
+.then(function(response){
+  return response.json();
+})
+.then(function(json){
+  p.innerHTML = json.summary;
+  console.log(json);
+  return fetch(people);
+})
+.then(function(response){
+  return response.json();
+})
+.then(function(json){
+  p.innerHTML += ` ${json[0].person.name}`;
+})
+
+.catch(function(err){
+  console.log(err);
+})
+*/
+
+//var movieName = "Monkeys";
+var img = document.querySelector("#poster");
+var title = document.querySelector("#title");
+var summary = document.querySelector("#summary");
+var input = document.querySelector("#input");
+var span = document.querySelector("span");
+
+input.addEventListener("input", function(){
+  let movieName = input.value;
+  if(input.value === ""){
+    title.innerText = "Welcome, search a movie in the input!";
+    img.src = "";
+    summary.innerHTML = "";
+  }
+  var URL = `http://api.tvmaze.com/singlesearch/shows?q=${movieName}`
+  fetch(URL)
+.then(function(response){
+  return response.json();
+})
+.then(function(value){
+  img.src = value.image.medium;
+  title.innerText = value.name;
+  summary.innerHTML = value.summary;
+})
+.catch((err) => console.error(err));
+})
+
+
+
