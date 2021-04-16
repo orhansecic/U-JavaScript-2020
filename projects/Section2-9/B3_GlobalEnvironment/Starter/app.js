@@ -1102,7 +1102,12 @@ fetch(endpoint)
 })
 */
 
+
+/* Promises project TV Shows*/
+
+
 //var movieName = "Monkeys";
+/*
 var img = document.querySelector("#poster");
 var title = document.querySelector("#title");
 var summary = document.querySelector("#summary");
@@ -1128,6 +1133,37 @@ input.addEventListener("input", function(){
 })
 .catch((err) => console.error(err));
 })
+*/
+/*
+var foo = axios.get("http://api.tvmaze.com/singlesearch/shows?q=girls")
+.then(function(value){
+  console.log(value.data.id);
+})
 
+var fetch = fetch("http://api.tvmaze.com/singlesearch/shows?q=girls");
+console.log(fetch);
+*/
 
+/* Random Dad joke API example */
 
+var button = document.querySelector("button");
+var ul = document.querySelector("ul");
+button.addEventListener("click", foo);
+
+function foo(e){
+  var gipsy = e;
+  var api = axios.get("https://icanhazdadjoke.com/", {headers : {Accept : "application/json",}})
+  .then(function(value){
+    var example = value.data.joke;
+    var joke = document.createElement("li");
+    joke.innerText = example;
+    ul.append(joke);
+  })
+  .catch(function(err){
+    console.error(err);
+  })
+}
+
+document.querySelector("input").addEventListener("keydown", function(e){
+  console.log(e);
+})

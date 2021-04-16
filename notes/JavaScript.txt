@@ -72,6 +72,8 @@ undefined, null, " "... is equal to true.
 ---------------------Async JavaScript--------------------
 + 1. The Call Stack
 + 3. Promises and fetch()
++ 4. Async keyword
++ 5. Await keyword
 ----------------- STATEMENTS ----------------------------
 + 1. "for" statement
 --------------------------------------------------------------------------------
@@ -751,6 +753,29 @@ the fetch was successful.
 inherited by the next then() method.
 ++ What .then() returns the next .then() gets as a parameter that I mentioned on the line 738. Only the first
 .then() gets a promisee's fulfilment value.
+
++++++++++++++++++++++++++++++++++++++++++++++
+4. Async keyword
+
+- Async is a keyword that we use in front of functions when declaring them to specify that this function is
+going to be executed asynchronously.
+- That means that a function will return a promise.
+- Example: https://prnt.sc/105kigs
+
+- This returned promise is the same object promise that I talked about before, we can chain .then() and .catch()
+methods on it, basically do the same things as before.
+- It is the same Promise Object.
+
++++++++++++++++++++++++++++++++++++++++++++++
+4. Await keyword
+
+- Await is only valid in async functions.
+- Await keyword specifies what function will be waited until the promise is resolved.
+- Meaning that other async functions wont be executed until this one is resolved. 
+
+- await return the "value" property of the promise, it basically returns the same value property that I mentioned
+on the line 742, just here we don't have to pass an argument that will define that value, but we have to
+define a variable and save that value in if we want to use it.
 
 
 ----------------- STATEMENTS ----------------------------
